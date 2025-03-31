@@ -1,35 +1,41 @@
 import React from "react";
 
-export default function Main(props) {
-  const name = "Shehan Nadeesha";
-  const position = "front-end developer";
-  const myObj = {
-    name: `${name}`,
-    age: 23,
-    position: `${position}`,
-    address: {
-      address1: "colombo",
-      address2: "gampaha",
-    },
-  };
+// const name = "Shehan Nadeesha";
+// const position = "front-end developer";
+// const myObj = {
+//   name: `${name}`,
+//   age: 23,
+//   position: `${position}`,
+//   address: {
+//     address1: "colombo",
+//     address2: "gampaha",
+//   },
+// };
+// methanadi props tika enne objects widihata a nisa apita eka destructure karaganna puluwn {children} widihata itapasse apita eka children kiyala access karanna puluwn
+export default function Main({ children, name, city, position }) {
+  //   console.log(props);
 
-  //   const { name, position } = myObj;
+  //   const {address: { address1, address2 } } = myObj;
   return (
     <div>
       This is main component
-      <ul>
-        <li>JavaScript</li>
-        <li>Java</li>
-        <li>Python</li>
+      {/* <ul>
+        <li>JS</li>
+        <li>JAVA</li>
+        <li>python</li>
         <li>C++</li>
-      </ul>
+      </ul> */}
       <ol>
+        {/* <li>{name}</li> */}
+        {/* <li>{myObj.position}</li> */}
+        {/* <li>{address1}</li> */}
+        {/* <li>{address2}</li> */}
+        {/* <li>{myObj.age}</li> */}
         <li>{name}</li>
-        <li>{myObj.position}</li>
-        <li>{myObj.address.address1}</li>
-        <li>{myObj.age}</li>
+        <li>{city}</li>
+        <li>{position}</li>
       </ol>
-      {props.children}
+      {/* {children} */}
       {/* me widihata component ekath ekka ena childrenwa access karanna puluwn */}
     </div>
   );
