@@ -10,7 +10,7 @@
 //   },
 // };
 // methanadi props tika enne objects widihata a nisa apita eka destructure karaganna puluwn {children} widihata itapasse apita eka children kiyala access karanna puluwn
-export default function Main({ children, name, city, image, position }) {
+export default function Main({ children, name, city, position, image }) {
   //   console.log(props);
 
   //   const {address: { address1, address2 } } = myObj;
@@ -32,8 +32,8 @@ export default function Main({ children, name, city, image, position }) {
       {/* <li>{name}</li>
         <li>{city}</li>
         <li>{position}</li> */}
-      {/* </ol> */}
-      {/* {children} */}
+      {/* </ol>
+      {children}
       {/* me widihata component ekath ekka ena childrenwa access karanna puluwn */}
 
       <img
