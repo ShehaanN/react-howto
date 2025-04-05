@@ -156,6 +156,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import Unit from "./Components/Unit";
+import Header from "./Components/Header";
 // apita me app eka athule function hadana hari useState hadana hari wena mokuth weda karan nettam {},return mokuth nethuwa direct return karanna puluwn () witharak dala--------namuth app ekedi func, useState one wana nisa app eke direct return awasthawa practical ne ,,, namuth wena component ekata direct return awasthawa use karanna puluwn
 const App = () => {
   const [imageUrl, setImageUrl] = useState("");
@@ -167,92 +168,95 @@ const App = () => {
 
   // console.log(imageUrl);
   return (
-    <div className="main_container_1">
-      <div className="main_left_1">
-        <input
-          type="text"
-          placeholder="Image Url"
-          value={imageUrl} //methanadi imageUrl state eka me  input eke value eka widihat dila thiyanawa
-          onChange={(e, data) => {
-            e.preventDefault();
-            setImageUrl(e.target.value);
-          }}
-        />
+    <div>
+      <Header />
+      <div className="main_container_1">
+        <div className="main_left_1">
+          <input
+            type="text"
+            placeholder="Image Url"
+            value={imageUrl} //methanadi imageUrl state eka me  input eke value eka widihat dila thiyanawa
+            onChange={(e, data) => {
+              e.preventDefault();
+              setImageUrl(e.target.value);
+            }}
+          />
 
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => {
-            e.preventDefault();
-            setName(e.target.value);
-          }}
-        />
-        {/* methanadi wenne me input eke change ekak sidda weddi, changing value eka gihin setName ekat wetenawa,, itapasse eka setName haraha name state ekata wetenawa...ethakota name state eke value eka thama pennanne */}
-        <input
-          type="text"
-          placeholder="City"
-          value={city}
-          onChange={(e) => {
-            e.preventDefault();
-            setCity(e.target.value);
-          }}
-        />
-        <input
-          type="text"
-          placeholder="Position"
-          value={position}
-          onChange={(e) => {
-            e.preventDefault();
-            setPosition(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            // console.log({
-            //   imageUrl,
-            //   name,
-            //   city,
-            //   position,
-            // });
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={(e) => {
+              e.preventDefault();
+              setName(e.target.value);
+            }}
+          />
+          {/* methanadi wenne me input eke change ekak sidda weddi, changing value eka gihin setName ekat wetenawa,, itapasse eka setName haraha name state ekata wetenawa...ethakota name state eke value eka thama pennanne */}
+          <input
+            type="text"
+            placeholder="City"
+            value={city}
+            onChange={(e) => {
+              e.preventDefault();
+              setCity(e.target.value);
+            }}
+          />
+          <input
+            type="text"
+            placeholder="Position"
+            value={position}
+            onChange={(e) => {
+              e.preventDefault();
+              setPosition(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              // console.log({
+              //   imageUrl,
+              //   name,
+              //   city,
+              //   position,
+              // });
 
-            setMyData((pre) => {
-              return [...pre, { image: imageUrl, name, city, position }];
-            });
-            // methana button eka click karama setMydata walin previous data aragena a pre data walin,a pre data methana return karanne array ekak widihata(mokada myData kiyana eka array ekak wenna one , ethakotane map karanna puluwn)-----ekedi api spread kara kalin thibba value, itapasse aluth value walin replace kara
+              setMyData((pre) => {
+                return [...pre, { image: imageUrl, name, city, position }];
+              });
+              // methana button eka click karama setMydata walin previous data aragena a pre data walin,a pre data methana return karanne array ekak widihata(mokada myData kiyana eka array ekak wenna one , ethakotane map karanna puluwn)-----ekedi api spread kara kalin thibba value, itapasse aluth value walin replace kara
 
-            //----------------
-            // methana image eke 2k use karala thiyenne,,mokada object eke property eka widihata image kiyala thiyenna one hebai value eka widihata imageUrl eka thiyenna one----mokada 2 value eka wenasne
+              //----------------
+              // methana image eke 2k use karala thiyenne,,mokada object eke property eka widihata image kiyala thiyenna one hebai value eka widihata imageUrl eka thiyenna one----mokada 2 value eka wenasne
 
-            setImageUrl((pre) => {
-              if (pre.length > 0) {
-                return "";
-              } else {
-                return pre;
-              }
-            });
+              setImageUrl((pre) => {
+                if (pre.length > 0) {
+                  return "";
+                } else {
+                  return pre;
+                }
+              });
 
-            setName((pre) => (pre.length > 0 ? "" : pre));
-            setCity((pre) => (pre.length > 0 ? "" : pre));
-            setPosition((pre) => (pre.length > 0 ? "" : pre));
-          }}
-        >
-          Submit
-        </button>
-        {/*meke thiyana details save karaganna useState 4k one---useState wala thama me input save kara ganne*/}
-      </div>
-      <div className="main_right_1">
-        {myData?.map((el, index) => {
-          return (
-            <Unit
-              key={index + el}
-              image={el.image}
-              name={el.name}
-              city={el.city}
-              position={el.position}
-            />
-          );
-        })}
+              setName((pre) => (pre.length > 0 ? "" : pre));
+              setCity((pre) => (pre.length > 0 ? "" : pre));
+              setPosition((pre) => (pre.length > 0 ? "" : pre));
+            }}
+          >
+            Submit
+          </button>
+          {/*meke thiyana details save karaganna useState 4k one---useState wala thama me input save kara ganne*/}
+        </div>
+        <div className="main_right_1">
+          {myData?.map((el, index) => {
+            return (
+              <Unit
+                key={index + el}
+                image={el.image}
+                name={el.name}
+                city={el.city}
+                position={el.position}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );
