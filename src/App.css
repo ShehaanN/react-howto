@@ -28,3 +28,46 @@
   display: flex;
   justify-content: center;
 }
+/* --------------------------------------- */
+
+.main_container_1 {
+  margin: 0 auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 1;
+}
+
+.main_container_1 .main_left_1 {
+  padding-right: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.main_container_1 .main_left_1 input {
+  width: 100%;
+  padding: 7px;
+}
+
+.main_container_1 .main_right_1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 17px;
+  align-items: center;
+}
+
+.main_container_1 .main_right_1 .unit_container p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main_container_1 .main_right_1 .unit_container img {
+  width: 100%;
+  object-fit: contain;
+}
