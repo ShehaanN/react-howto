@@ -275,25 +275,34 @@ import { useEffect, useState } from "react";
 const App = () => {
   const [apiId, setApiId] = useState("1");
   const [data, setData] = useState({});
-  console.log(apiId);
-  console.log(data);
+  // console.log(apiId);
+  // console.log(data);
 
   useEffect(() => {
     console.log("useEffect running..");
-    if (apiId.length > 0) {
+
+    const apiCall = async () => {
+      console.log("api call running...");
+
+      const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts/${apiId}`
+      );
+      const data = await res.json();
+      if (data) {
+        setData(data);
+      }
+    };
+    if (apiId.length > 0 && Number(apiId) > 0 && Number(apiId) <= 100) {
       console.log("useEffect if condition..");
 
-      const apiCall = async () => {
-        const res = await fetch(
-          `https://jsonplaceholder.typicode.com/posts/${apiId}`
-        );
-        const data = await res.json();
-        if (data) {
-          setData(data);
-        }
-      };
       apiCall();
     }
+
+    return () => {
+      console.log("cleanup");
+
+      apiCall();
+    };
   }, [apiId]);
 
   return (
@@ -306,6 +315,13 @@ const App = () => {
         }}
         placeholder="enter id"
       />
+
+      {data && (
+        <div>
+          <h2>{data.title}</h2>
+          <p>{data.body}</p>
+        </div>
+      )}
     </div>
   );
 };
