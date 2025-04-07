@@ -3,8 +3,6 @@
 // import Main from "./Components/Main";
 // import { myData } from "./Data/myData";
 
-import { useEffect, useState } from "react";
-
 // // methanadi component ekak athule thawath component ekak use karala thiyanwa
 // // const NewBlock = () => {
 // //   return (
@@ -271,58 +269,88 @@ import { useEffect, useState } from "react";
 // export default App;
 
 //---------------------------------------------------------
+// useEffect paractical example
+
+// import { useEffect, useState } from "react";
+// import "./App.css";
+// const App = () => {
+//   const [apiId, setApiId] = useState("1");
+//   const [data, setData] = useState({});
+//   // console.log(apiId);
+//   // console.log(data);
+
+//   useEffect(() => {
+//     console.log("useEffect running..");
+
+//     const apiCall = async () => {
+//       console.log("api call running...");
+
+//       const res = await fetch(
+//         `https://jsonplaceholder.typicode.com/posts/${apiId}`
+//       );
+//       const data = await res.json();
+//       if (data) {
+//         setData(data);
+//       }
+//     };
+//     if (apiId.length > 0 && Number(apiId) > 0 && Number(apiId) <= 100) {
+//       console.log("useEffect if condition..");
+
+//       apiCall();
+//     }
+
+//     return () => {
+//       console.log("cleanup");
+
+//       apiCall();
+//     };
+//   }, [apiId]);
+
+//   return (
+//     <div>
+//       <input
+//         type="text"
+//         value={apiId}
+//         onChange={(e) => {
+//           setApiId(e.target.value);
+//         }}
+//         placeholder="enter id"
+//       />
+
+//       {data && (
+//         <div>
+//           <h2>{data.title}</h2>
+//           <p>{data.body}</p>
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default App;
+
+//-----------------React Router--------------------------
+
+import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home";
+import About from "./Components/About";
+import Contact from "./Components/Contact";
+import ContactDetails from "./Components/ContactDetails";
+import User from "./Components/User";
 
 const App = () => {
-  const [apiId, setApiId] = useState("1");
-  const [data, setData] = useState({});
-  // console.log(apiId);
-  // console.log(data);
-
-  useEffect(() => {
-    console.log("useEffect running..");
-
-    const apiCall = async () => {
-      console.log("api call running...");
-
-      const res = await fetch(
-        `https://jsonplaceholder.typicode.com/posts/${apiId}`
-      );
-      const data = await res.json();
-      if (data) {
-        setData(data);
-      }
-    };
-    if (apiId.length > 0 && Number(apiId) > 0 && Number(apiId) <= 100) {
-      console.log("useEffect if condition..");
-
-      apiCall();
-    }
-
-    return () => {
-      console.log("cleanup");
-
-      apiCall();
-    };
-  }, [apiId]);
-
   return (
-    <div>
-      <input
-        type="text"
-        value={apiId}
-        onChange={(e) => {
-          setApiId(e.target.value);
-        }}
-        placeholder="enter id"
-      />
-
-      {data && (
-        <div>
-          <h2>{data.title}</h2>
-          <p>{data.body}</p>
-        </div>
-      )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/contact/details" element={<ContactDetails />} />
+        <Route path="/contact/:id" element={<User />} />
+        {/* methanadi static pages wenuwata dynamic pages use karala thiyanawa */}
+      </Routes>
+    </BrowserRouter>
   );
 };
 
