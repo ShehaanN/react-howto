@@ -338,20 +338,30 @@ import About from "./Components/About";
 import Contact from "./Components/Contact";
 import ContactDetails from "./Components/ContactDetails";
 import User from "./Components/User";
+import Project from "./Components/Project";
+
+import styled from "styled-components";
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/contact/details" element={<ContactDetails />} />
-        <Route path="/contact/:id" element={<User />} />
-        {/* methanadi static pages wenuwata dynamic pages use karala thiyanawa */}
-      </Routes>
-    </BrowserRouter>
+    <AppContainer>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/project" element={<Project />} />
+          <Route path="/contact/details" element={<ContactDetails />} />
+          <Route path="/contact/:id" element={<User />} />
+          {/* methanadi static pages wenuwata dynamic pages use karala thiyanawa */}
+        </Routes>
+      </BrowserRouter>
+    </AppContainer>
   );
 };
 
 export default App;
+
+const AppContainer = styled.div`
+  width: 100vw;
+`;
