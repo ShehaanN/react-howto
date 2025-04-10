@@ -339,6 +339,7 @@ import Contact from "./Components/Contact";
 import ContactDetails from "./Components/ContactDetails";
 import User from "./Components/User";
 import Project from "./Components/Project";
+import Test from "./Components/Test";
 
 import styled from "styled-components";
 
@@ -352,6 +353,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/project" element={<Project />} />
           <Route path="/contact/details" element={<ContactDetails />} />
+          <Route path="/test" element={<Test />} />
           <Route path="/contact/:id" element={<User />} />
           {/* methanadi static pages wenuwata dynamic pages use karala thiyanawa */}
         </Routes>

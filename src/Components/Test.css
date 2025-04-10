@@ -1,0 +1,45 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  margin-top: 100px;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  display: inline-block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.count {
+  font-size: 24px;
+  margin: 20px 0;
+}
+
+.buttons button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.buttons button:nth-child(1) {
+  background-color: #4caf50;
+  color: white;
+}
+
+.buttons button:nth-child(2) {
+  background-color: #f44336;
+  color: white;
+}
+
+.buttons button:nth-child(3) {
+  background-color: #555;
+  color: white;
+}

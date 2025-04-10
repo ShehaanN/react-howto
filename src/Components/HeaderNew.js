@@ -2,7 +2,7 @@ import { useState } from "react";
 import closeMenu from "../image/close-md-svgrepo-com.svg";
 import menu from "../image/menu-svgrepo-com.svg";
 import styled from "styled-components";
-import { Link, Links } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const HeaderNew = () => {
   const [menuClick, setMenuClick] = useState(false);
